@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700"
+          rel="stylesheet" type="text/css">
+
+    <style>
+        @font-face {
+            font-family: "Alt_DIN";
+            src: url('din1451alt.ttf');
+        }
+
+        #customers {
+            font-family: Roboto, sans-serif;
+            border-collapse: collapse;
+            color: #142733;
+            width: 60%;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 13px;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 6px;
+            border-left-style:hidden;
+            border-right-style:hidden;
+        }
+
+        /*
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        */
+
+        .row:hover {
+            background-color: #0ab5a0;
+            color : white;
+        }
+
+        .enumeration {
+
+        }
+
+        #customers th {
+            /*padding-top: 12px;
+            padding-bottom: 12px; */
+            font-size: 11px;
+            padding: 5px;
+            text-align: left;
+            /* background-color: #274b61; */
+            border: hidden;
+        }
+
+
+    </style>
+</head>
+
+<body>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'>
+</script>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            type: "GET",
+            url: "test_most_fatal_roadways_2015.txt",
+            dataType: "text",
+            success: function(data) {console.log(data);}
+        });
+    });
+</script>
+
+<table id="customers">
+
+    <tr>
+        <th>COMPANY </th>
+        <th></th>
+        <th>CONTACT </th>
+        <th>COUNTRY </th>
+    </tr>
+    <tr class = "row">
+        <td class = "enumeration" >1.</td>
+        <td>Alfreds Futterkiste</td>
+        <td>Maria Anders</td>
+        <td>Germany</td>
+    </tr>
+    <tr class = "row">
+        <td class = "enumeration" >2.</td>
+        <td>Berglunds snabbköp</td>
+        <td>Christina Berglund</td>
+        <td>Sweden</td>
+    </tr>
+    <tr class = "row">
+        <td class = "enumeration" >3.</td>
+        <td>Centro comercial Moctezuma</td>
+        <td>Francisco Chang</td>
+        <td>Mexico</td>
+    </tr>
+    <tr class = "row">
+        <td class = "enumeration" >4.</td>
+        <td>Ernst Handel</td>
+        <td>Roland Mendel</td>
+        <td>Austria</td>
+    </tr>
+    <tr class = "row">
+        <td class = "enumeration" >5.</td>
+        <td>Island Trading</td>
+        <td>Helen Bennett</td>
+        <td>UK</td>
+    </tr>
+    <tr class = "row">
+        <td class = "enumeration" >6.</td>
+        <td>Königlich Essen</td>
+        <td>Philip Cramer</td>
+        <td>Germany</td>
+    </tr>
+    <tr class = "row">
+        <td class = "enumeration" >7.</td>
+        <td>Laughing Bacchus Winecellars</td>
+        <td>Yoshi Tannamuri</td>
+        <td>Canada</td>
+    </tr>
+    <tr class = "row">
+        <td class = "enumeration" >8.</td>
+        <td>Magazzini Alimentari Riuniti</td>
+        <td>Giovanni Rovelli</td>
+        <td>Italy</td>
+    </tr>
+    <tr class = "row">
+        <td class = "enumeration" >9.</td>
+        <td>North/South</td>
+        <td>Simon Crowther</td>
+        <td>UK</td>
+    </tr>
+    <tr class = "row">
+        <td class = "enumeration" >10.</td>
+        <td>Paris spécialités</td>
+        <td>Marie Bertrand</td>
+        <td>France</td>
+    </tr>
+</table>
+</body>
