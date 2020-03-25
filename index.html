@@ -5,19 +5,33 @@
     <title> 1909300 Graph Similarity Computation </title>
 </head>
 <body>
-<h1> AIDS databases: what does data look like?</h1>
+<h1>1909300: Graph Similarity Computation</h1>
+<h2>1. Introdution</h2>
+
+<h2>2. Algorithm Design</h2>
+
+<h2>3. Results Visualization and Analyse</h2>
+
+
+
+
+
+
+
+
+
+
+<h3> AIDS databases: what does data look like?</h3>
 <p>
     Here is what the graph in AIDS databases look like.
-</p>>
-
-<
-<svg width="700" height="400"></svg>
+</p>
+<svg  id="mysvg" width="700" height="400"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
 <script>
-    var svg = d3.select("svg"),
-        width = +svg.attr("width"),
-        height = +svg.attr("height");
+    var svg1 = d3.select("svg"),
+        width = +svg1.attr("width"),
+        height = +svg1.attr("height");
 
     var simulation = d3.forceSimulation()
         .force("link", d3.forceLink().id(function(d) { return d.id; }))
@@ -33,13 +47,13 @@
             d.target = d.target_id;
         });
 
-        var link = svg.append("g")
+        var link = svg1.append("g")
             .style("stroke", "#aaa")
             .selectAll("line")
             .data(graph.links)
             .enter().append("line");
 
-        var node = svg.append("g")
+        var node = svg1.append("g")
             .attr("class", "nodes")
             .selectAll("circle")
             .data(graph.nodes)
@@ -50,7 +64,7 @@
                 .on("drag", dragged)
                 .on("end", dragended));
 
-        var label = svg.append("g")
+        var label = svg1.append("g")
             .attr("class", "labels")
             .selectAll("text")
             .data(graph.nodes)
@@ -103,207 +117,29 @@
 
 </script>
 
-<h2> This is the progress how my algorithm works.</h2>
+<h3> This is the progress how my algorithm works.</h3>
 <p>
     Here is what the graph in AIDS databases look like.
-</p>>
+</p>
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script>
 
-    // ************** Generate the tree diagram	 *****************
-    var margin = {top: 20, right: 200, bottom: 20, left: 300},
-        width = 960 - margin.right - margin.left,
-        height = 500 - margin.top - margin.bottom;
 
-    var i = 0;
 
-    var tree = d3.layout.tree()
-        .size([height, width]);
 
-    var diagonal = d3.svg.diagonal()
-        .projection(function(d) { return [d.y, d.x]; });
 
-    var svg = d3.select("body").append("svg")
-        .attr("width", width + margin.right + margin.left)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    // load the external data
-    d3.csv("./data/treedata.csv", function(error, data) {
 
-// *********** Convert flat data into a nice tree ***************
-// create a name: node map
-        var dataMap = data.reduce(function(map, node) {
-            map[node.name] = node;
-            return map;
-        }, {});
 
-// create the tree array
-        var treeData = [];
-        data.forEach(function(node) {
-            // add to parent
-            var parent = dataMap[node.parent];
-            if (parent) {
-                // create child array if it doesn't exist
-                (parent.children || (parent.children = []))
-                    // add node to child array
-                    .push(node);
-            } else {
-                // parent is null or missing
-                treeData.push(node);
-            }
-        });
 
-        root = treeData[0];
-        update(root);
-    });
 
-    function update(source) {
 
-        // Compute the new tree layout.
-        var nodes = tree.nodes(root).reverse(),
-            links = tree.links(nodes);
 
-        // Normalize for fixed-depth.
-        nodes.forEach(function(d) { d.y = d.depth * 180; });
-
-        // Declare the nodesâ€¦
-        var node = svg.selectAll("g.node")
-            .data(nodes, function(d) { return d.id || (d.id = ++i); });
-
-        // Enter the nodes.
-        var nodeEnter = node.enter().append("g")
-            .attr("class", "node")
-            .attr("transform", function(d) {
-                return "translate(" + d.y + "," + d.x + ")"; });
-
-        nodeEnter.append("circle")
-            .attr("r", 10)
-            .style("fill", "#fff")
-            .on("mouseover", function(){
-                d3.select(this)
-                    .style("stroke", "#e5d9c9")
-            })
-            .on("mouseout", function (){
-                d3.select(this)
-                    .style("stroke", "#ABD0CE")
-            });
-
-        nodeEnter.append("text")
-            .attr("x", function(d) {
-                return d.children || d._children ? -13 : 13; })
-            .attr("dy", ".35em")
-            .attr("text-anchor", function(d) {
-                return d.children || d._children ? "end" : "start"; })
-            .text(function(d) { return d.name; })
-            .style("fill-opacity", 1)
-            .on("mouseover", function(){
-                d3.select(this)
-                    .style("stroke", "#ccc")
-            })
-            .on("mouseout", function (){
-                d3.select(this)
-                    .style("stroke", "#000000")
-            });
-
-        // Declare the linksâ€¦
-        var link = svg.selectAll("path.link")
-            .data(links, function(d) { return d.target.id; })
-
-        // Enter the links.
-        link.enter().insert("path", "g")
-            .attr("class", "link")
-            .attr("d", diagonal)
-            .on("mouseover", function(){
-                d3.select(this)
-                    .style("stroke", "#000")
-            })
-            .on("mouseout", function (){
-                d3.select(this)
-                    .style("stroke", "#ccc")
-            });
-
-    }
-
-</script>
-
-<h3> Evaluation: My algorithm Vs Graph Edit Distance</h3>
+<h3s> Evaluation: My algorithm Vs Graph Edit Distance</h3s>
 <p>
     From the table, we can see that
-</p>>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</p>
 
-
-<h4><u>Graph Similarity Computation <span style="color: #F0E5DE">My Algorithm Results</span> and <span style="color: #ABD0CE">Graph Edit Distance Results</span></u></h4>
-<div id="table"></div>
-
-<script type="text/javascript">
-
-    d3.csv("./data/all_data.csv", function (error, data){ //Loading csv file
-        if (error){                                            //Handling errors
-            console.log("An error occured while loading data");
-        }
-
-        var myArray = [];
-
-        data.forEach(function(d, i){
-            myArray.push([d.Image_No1, d.My_Algorithm, d.Image_No2, d.Graph_Edit_Distance]) //Now this is an array of arrays
-        });                                                                      //Not an array of objects
-        console.log("New data: ", myArray);
-
-
-        /*
-        myArray.sort(function(a,b){                 //This will sort data by % difference
-            return d3.ascending(a[3], b[3]);         //in descending order
-        })
-        */
-
-        var table = d3.select("#table").append("table");                        //Adding table to an element
-        var header = table.append("thead").append("tr");                         //Adding heads row
-
-        header
-            .selectAll("th")
-            .data(["Image No", "My Algorithm", "Image No", "Graph Edit Distance"])           //Header names slightly different
-            .enter()                                                             //to initial
-            .append("th")
-            .text(function(d){
-                return d;
-            })
-
-        var tBody = table.append("tbody");
-
-        var rows = tBody
-            .selectAll("tr")
-            .data(myArray).enter()
-            .append("tr")
-            .on("mouseover", function(){
-                d3.select(this)
-                    .style("background-color", "#e5d9c9")
-            })
-            .on("mouseout", function (){
-                d3.select(this)
-                    .style("background-color", "white")
-            });
-
-        var cells = rows
-            .selectAll("td")
-            .data(function(d){
-                return d;
-            })
-            .enter()
-            .append("td")
-            .text(function(d){
-                return d;
-            })
-
-
-    })
-
-</script>
 </body>
 </html>
+
+
