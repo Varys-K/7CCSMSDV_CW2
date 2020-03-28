@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b4eb6193-0da7-419f-80ec-512e00bf2607" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1ZjLYp4sKsKggJ6ruE5u2J6BVM8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="F:/Webstorm_Projects" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b4eb6193-0da7-419f-80ec-512e00bf2607" name="Default Changelist" comment="" />
+      <created>1585347606096</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585347606096</updated>
+      <workItem from="1585347607786" duration="6565000" />
+      <workItem from="1585413401573" duration="1356000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="92" y="179" key="#Deployment" timestamp="1585347817536">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="179" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1585347817536" />
+    <state x="93" y="100" width="814" height="847" key="DirDiffDialog" timestamp="1585355863948">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="93" y="100" width="814" height="847" key="DirDiffDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585355863948" />
+    <state x="280" y="275" key="FileChooserDialogImpl" timestamp="1585413818576">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="280" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585413818576" />
+    <state x="296" y="171" key="ftp.server.browser" timestamp="1585347815941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="296" y="171" key="ftp.server.browser/0.0.1920.1040@0.0.1920.1040" timestamp="1585347815941" />
+  </component>
+</project>

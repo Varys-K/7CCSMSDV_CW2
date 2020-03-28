@@ -1,3 +1,6 @@
+---
+layout: default
+---
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
@@ -49,7 +52,9 @@
 <h2>2. Algorithm Design</h2>
 <h3>2.1 Data Display</h3>
 <p id = "first">
-    This project uses data from open-source AIDS dataset from paper[1] in Github.Here is what the graphs in AIDS databases look like.
+    This project uses data from open-source AIDS dataset from paper[1] in Github.
+    Here is what the graphs in AIDS databases look like.
+    In my project, I select 559 of them to test my algorithm.
 </p>
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
@@ -163,29 +168,30 @@
     The process is as follows.
 </p>
 <script>
-    var treeData = [
+
+    var treeData1 = [
         {
             "name": "Algorithm",
             "parent": "null",
             "children": [
                 {
-                    "name": "DeepWalk",
+                    "name": "Deep Walk",
                     "parent": "Algorithm",
                     "children": [
                         {
                             "name": "Random Walk",
-                            "parent": "DeepWalk"
+                            "parent": "Deep Walk"
                         },
                         {
                             "name": "Word2Vec",
-                            "parent": "DeepWalk",
+                            "parent": "Deep Walk",
                             "children": [
                                 {
                                     "name": "SkipGram Algorithm",
                                     "parent": "Word2Vec"
                                 },
                                 {
-                                    "name": "Embedding Dimension",
+                                    "name": "Embedding Dimension Matrix",
                                     "parent": "Word2Vec"
                                 }
                             ]
@@ -212,52 +218,52 @@
 
     var i = 0,
         duration = 750,
-        root;
+        root1;
 
-    var tree = d3.layout.tree()
+    var tree1 = d3.layout.tree()
         .size([height, width]);
 
-    var diagonal = d3.svg.diagonal()
+    var diagonal5 = d3.svg.diagonal()
         .projection(function(d) { return [d.y, d.x]; });
 
-    var svg = d3.select("#second").append("svg")
+    var svg5 = d3.select("#second").append("svg")
         .attr("width", width + margin.right + margin.left)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    root = treeData[0];
-    root.x0 = height / 2;
-    root.y0 = 0;
+    root1 = treeData1[0];
+    root1.x0 = height / 2;
+    root1.y0 = 0;
 
-    update(root);
+    update1(root1);
 
     d3.select(self.frameElement).style("height", "500px");
 
-    function update(source) {
+    function update1(source) {
 
         // Compute the new tree layout.
-        var nodes = tree.nodes(root).reverse(),
-            links = tree.links(nodes);
+        var nodes5 = tree1.nodes(root1).reverse(),
+            links5 = tree1.links(nodes5);
 
         // Normalize for fixed-depth.
-        nodes.forEach(function(d) { d.y = d.depth * 180; });
+        nodes5.forEach(function(d) { d.y = d.depth * 180; });
 
         // Update the nodes…
-        var node = svg.selectAll("g.node")
-            .data(nodes, function(d) { return d.id || (d.id = ++i); });
+        var node5 = svg5.selectAll("g.node")
+            .data(nodes5, function(d) { return d.id || (d.id = ++i); });
 
         // Enter any new nodes at the parent's previous position.
-        var nodeEnter = node.enter().append("g")
+        var nodeEnter5 = node5.enter().append("g")
             .attr("class", "node")
             .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-            .on("click", click);
+            .on("click", click1);
 
-        nodeEnter.append("circle")
+        nodeEnter5.append("circle")
             .attr("r", 1e-6)
             .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
-        nodeEnter.append("text")
+        nodeEnter5.append("text")
             .attr("x", function(d) { return d.children || d._children ? -13 : 13; })
             .attr("dy", ".35em")
             .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
@@ -265,64 +271,64 @@
             .style("fill-opacity", 1e-6);
 
         // Transition nodes to their new position.
-        var nodeUpdate = node.transition()
+        var nodeUpdate5 = node5.transition()
             .duration(duration)
             .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
-        nodeUpdate.select("circle")
+        nodeUpdate5.select("circle")
             .attr("r", 10)
             .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
-        nodeUpdate.select("text")
+        nodeUpdate5.select("text")
             .style("fill-opacity", 1);
 
         // Transition exiting nodes to the parent's new position.
-        var nodeExit = node.exit().transition()
+        var nodeExit5 = node5.exit().transition()
             .duration(duration)
             .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
             .remove();
 
-        nodeExit.select("circle")
+        nodeExit5.select("circle")
             .attr("r", 1e-6);
 
-        nodeExit.select("text")
+        nodeExit5.select("text")
             .style("fill-opacity", 1e-6);
 
         // Update the links…
-        var link = svg.selectAll("path.link")
-            .data(links, function(d) { return d.target.id; });
+        var link5 = svg5.selectAll("path.link")
+            .data(links5, function(d) { return d.target.id; });
 
         // Enter any new links at the parent's previous position.
-        link.enter().insert("path", "g")
+        link5.enter().insert("path", "g")
             .attr("class", "link")
             .attr("d", function(d) {
                 var o = {x: source.x0, y: source.y0};
-                return diagonal({source: o, target: o});
+                return diagonal5({source: o, target: o});
             });
 
         // Transition links to their new position.
-        link.transition()
+        link5.transition()
             .duration(duration)
-            .attr("d", diagonal);
+            .attr("d", diagonal5);
 
         // Transition exiting nodes to the parent's new position.
-        link.exit().transition()
+        link5.exit().transition()
             .duration(duration)
             .attr("d", function(d) {
                 var o = {x: source.x, y: source.y};
-                return diagonal({source: o, target: o});
+                return diagonal5({source: o, target: o});
             })
             .remove();
 
         // Stash the old positions for transition.
-        nodes.forEach(function(d) {
+        nodes5.forEach(function(d) {
             d.x0 = d.x;
             d.y0 = d.y;
         });
     }
 
     // Toggle children on click.
-    function click(d) {
+    function click1(d) {
         if (d.children) {
             d._children = d.children;
             d.children = null;
@@ -330,7 +336,7 @@
             d.children = d._children;
             d._children = null;
         }
-        update(d);
+        update1(d);
     }
 
 </script>
@@ -540,16 +546,16 @@
             .data(nodes11, function(d) { return d.id || (d.id = ++i); });
 
         // Enter any new nodes at the parent's previous position.
-        var nodeEnter = node22.enter().append("g")
+        var nodeEnter1 = node22.enter().append("g")
             .attr("class", "node")
             .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
             .on("click", click);
 
-        nodeEnter.append("circle")
+        nodeEnter1.append("circle")
             .attr("r", 1e-6)
             .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
-        nodeEnter.append("text")
+        nodeEnter1.append("text")
             .attr("x", function(d) { return d.children || d._children ? +3 : 0; })
             .attr("dy", ".35em")
             .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
@@ -557,35 +563,35 @@
             .style("fill-opacity", 1e-6);
 
         // Transition nodes to their new position.
-        var nodeUpdate = node22.transition()
+        var nodeUpdate1 = node22.transition()
             .duration(duration)
             .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
-        nodeUpdate.select("circle")
+        nodeUpdate1.select("circle")
             .attr("r", 15)
             .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 
-        nodeUpdate.select("text")
+        nodeUpdate1.select("text")
             .style("fill-opacity", 2);
 
         // Transition exiting nodes to the parent's new position.
-        var nodeExit = node22.exit().transition()
+        var nodeExit2 = node22.exit().transition()
             .duration(duration)
             .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
             .remove();
 
-        nodeExit.select("circle")
+        nodeExit2.select("circle")
             .attr("r", 1e-6);
 
-        nodeExit.select("text")
+        nodeExit2.select("text")
             .style("fill-opacity", 1e-6);
 
         // Update the links…
-        var link = svg3.selectAll("path.link")
+        var link3 = svg3.selectAll("path.link")
             .data(links, function(d) { return d.target.id; });
 
         // Enter any new links at the parent's previous position.
-        link.enter().insert("path", "g")
+        link3.enter().insert("path", "g")
             .attr("class", "link")
             .attr("d", function(d) {
                 var o = {x: source.x0, y: source.y0};
@@ -593,12 +599,12 @@
             });
 
         // Transition links to their new position.
-        link.transition()
+        link3.transition()
             .duration(duration)
             .attr("d", diagonal);
 
         // Transition exiting nodes to the parent's new position.
-        link.exit().transition()
+        link3.exit().transition()
             .duration(duration)
             .attr("d", function(d) {
                 var o = {x: source.x, y: source.y};
@@ -654,8 +660,19 @@
 
 
 <h2>3. Results Visualization and Analyse</h2>
-Summarize the main results of the project.
-<h1><u>Graph Similarity Computation <span style="color: #F0E5DE">My Algorithm Results</span> and <span style="color: #ABD0CE">Graph Edit Distance Results</span></u></h1>
+Summarize the main results of the project.<br />
+Discussion of your results, interesting findings, strengths and limitation of
+your approach.<br />
+<p>
+    Graph Edit Distance(GED) is one of the best methods to measure graph similarity,
+    but it can not measure structure similarity well which is what my algorithm intends to do.
+    But when two graphs are exactly the same, GED will be 0, and it can be use to test whether my algorithm
+    is able to find all identical graphs.
+    The result is shown in the following table. The table shows top 10 similar graphs with graph 3 which are in in descending order.
+    From the table, we can see my algorithm can effectively recognizes identical graphs.
+</p>
+
+<h3><u>Graph Similarity Computation <span style="color: #F0E5DE">My Algorithm Results</span> and <span style="color: #ABD0CE">Graph Edit Distance Results</span></u></h3>
 <div id="table"></div>
 <script type="text/javascript">
     d3.csv("./data/all_data.csv", function (error, data){ //Loading csv file
@@ -719,16 +736,362 @@ Summarize the main results of the project.
     })
 </script>
 
+In more details, in the following, I will only show No 5 to 10 graphs in the above table since top 4 graphs have identical structure.
+The whole results and other test data can be found in my Github.
+<p id = "sixth">
+    This is what graph 3 looks like.
+</p>
+<p id = "seventh">
+    And these are the graphs that my algorithm found of highest similarity score with graph 3 among all 558 graphs in the databases.
+</p>
+
+<p id = "eighth">
+    This is what GED algorithm found that have minimal graph edit distances.
+    <style>
+        .node1 circle {
+            fill: #336600;
+            stroke: #336600;
+            stroke-width: 3px;
+        }
+    </style>
+</p>
+<script>
+    var links = [
+        {source: "1", target: "0", type: "licensing"},
+        {source: "1", target: "3", type: "licensing"},
+        {source: "1", target: "5", type: "suit"},
+        {source: "1", target: "4", type: "suit"},
+        {source: "0", target: "2", type: "resolved"},
+        {source: "2", target: "6", type: "suit"},
+        {source: "2", target: "7", type: "suit"}
+    ];
+
+    var nodes1 = {};
+
+    // Compute the distinct nodes from the links.
+    links.forEach(function(link) {
+        link.source = nodes1[link.source] || (nodes1[link.source] = {name: link.source});
+        link.target = nodes1[link.target] || (nodes1[link.target] = {name: link.target});
+    });
+
+    var width = 960,
+        height = 300;
+
+    var force = d3.layout.force()
+        .nodes(d3.values(nodes1))
+        .links(links)
+        .size([width, height])
+        .linkDistance(60)
+        .charge(-300)
+        .on("tick", tick)
+        .start();
+
+    var svg55 = d3.select("#sixth").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    var link55 = svg55.selectAll(".link")
+        .data(force.links())
+        .enter().append("line")
+        .attr("class", "link");
+
+    var node55 = svg55.selectAll(".node")
+        .data(force.nodes())
+        .enter().append("g")
+        .attr("class", "node")
+        .on("mouseover", mouseover)
+        .on("mouseout", mouseout)
+        .call(force.drag);
+
+    node55.append("circle")
+        .attr("r", 8);
+
+    node55.append("text")
+        .attr("x", 12)
+        .attr("dy", ".35em")
+    //.text(function(d) { return d.name; });
+
+    function tick() {
+        link55
+            .attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node55
+            .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    }
+
+    function mouseover() {
+        d3.select(this).select("circle").transition()
+            .duration(750)
+            .attr("r", 16);
+    }
+
+    function mouseout() {
+        d3.select(this).select("circle").transition()
+            .duration(750)
+            .attr("r", 8);
+    }
+
+</script>
+<script>
+    var links = [
+        {source: "1", target: "0", type: "licensing"},
+        {source: "1", target: "3", type: "licensing"},
+        {source: "1", target: "5", type: "suit"},
+        {source: "1", target: "4", type: "suit"},
+        {source: "0", target: "2", type: "resolved"},
+        {source: "2", target: "7", type: "suit"},
+        {source: "7", target: "6", type: "suit"},
+        {source: "11", target: "10", type: "licensing"},
+        {source: "11", target: "13", type: "licensing"},
+        {source: "11", target: "15", type: "suit"},
+        {source: "11", target: "14", type: "suit"},
+        {source: "10", target: "12", type: "resolved"},
+        {source: "12", target: "16", type: "licensing"},
+        {source: "17", target: "16", type: "licensing"},
+        {source: "110", target: "100", type: "licensing"},
+        {source: "110", target: "130", type: "licensing"},
+        {source: "110", target: "150", type: "suit"},
+        {source: "110", target: "140", type: "suit"},
+        {source: "100", target: "120", type: "resolved"},
+        {source: "120", target: "160", type: "licensing"},
+        {source: "170", target: "160", type: "licensing"},
+        {source: "1100", target: "1000", type: "licensing"},
+        {source: "1100", target: "1300", type: "licensing"},
+        {source: "1100", target: "1500", type: "suit"},
+        {source: "1100", target: "1400", type: "suit"},
+        {source: "1000", target: "1200", type: "resolved"},
+        {source: "1200", target: "1600", type: "licensing"},
+        {source: "1700", target: "1600", type: "licensing"},
+        {source: "1101", target: "1001", type: "licensing"},
+        {source: "1101", target: "1301", type: "licensing"},
+        {source: "1101", target: "1501", type: "suit"},
+        {source: "1101", target: "1401", type: "suit"},
+        {source: "1001", target: "1201", type: "resolved"},
+        {source: "1201", target: "1601", type: "licensing"},
+
+        {source: "111", target: "11011", type: "resolved"},
+        {source: "111", target: "113", type: "licensing"},
+        {source: "111", target: "115", type: "licensing"},
+        {source: "111", target: "114", type: "licensing"},
+        {source: "11011", target: "112", type: "licensing"},
+        {source: "112", target: "116", type: "suit"},
+        {source: "117", target: "116", type: "suit"},
+        {source: "116", target: "118", type: "resolved"}
+    ];
+
+    var nodes1 = {};
+
+    // Compute the distinct nodes from the links.
+    links.forEach(function(link) {
+        link.source = nodes1[link.source] || (nodes1[link.source] = {name: link.source});
+        link.target = nodes1[link.target] || (nodes1[link.target] = {name: link.target});
+    });
+
+    var width = 960,
+        height = 600;
+
+    var force = d3.layout.force()
+        .nodes(d3.values(nodes1))
+        .links(links)
+        .size([width, height])
+        .linkDistance(60)
+        .charge(-300)
+        .on("tick", tick)
+        .start();
+
+    var svg4 = d3.select("#seventh").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    var link4 = svg4.selectAll(".link")
+        .data(force.links())
+        .enter().append("line")
+        .attr("class", "link");
+
+    var node4 = svg4.selectAll(".node")
+        .data(force.nodes())
+        .enter().append("g")
+        .attr("class", "node")
+        .on("mouseover", mouseover)
+        .on("mouseout", mouseout)
+        .call(force.drag);
+
+    node4.append("circle")
+        .attr("r", 8);
+
+    node4.append("text")
+        .attr("x", 12)
+        .attr("dy", ".35em")
+    //.text(function(d) { return d.name; });
+
+    function tick() {
+        link4
+            .attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node4
+            .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    }
+
+    function mouseover() {
+        d3.select(this).select("circle").transition()
+            .duration(750)
+            .attr("r", 16);
+    }
+
+    function mouseout() {
+        d3.select(this).select("circle").transition()
+            .duration(750)
+            .attr("r", 8);
+    }
+
+</script>
+
+
+<script>
+
+    var links = [
+        {source: "1", target: "0", type: "licensing"},
+        {source: "1", target: "3", type: "licensing"},
+        {source: "1", target: "2", type: "suit"},
+        {source: "1", target: "4", type: "suit"},
+        {source: "3", target: "5", type: "resolved"},
+        {source: "5", target: "7", type: "suit"},
+        {source: "5", target: "6", type: "suit"},
+        {source: "4", target: "6", type: "suit"},
+
+        {source: "11", target: "10", type: "licensing"},
+        {source: "11", target: "12", type: "licensing"},
+        {source: "10", target: "14", type: "suit"},
+        {source: "13", target: "12", type: "suit"},
+        {source: "13", target: "14", type: "resolved"},
+        {source: "12", target: "15", type: "licensing"},
+        {source: "12", target: "16", type: "licensing"},
+        {source: "14", target: "17", type: "licensing"},
+
+        {source: "111", target: "100", type: "licensing"},
+        {source: "111", target: "103", type: "licensing"},
+        {source: "111", target: "102", type: "suit"},
+        {source: "111", target: "104", type: "suit"},
+        {source: "103", target: "105", type: "resolved"},
+        {source: "105", target: "107", type: "licensing"},
+        {source: "105", target: "106", type: "licensing"},
+        {source: "104", target: "106", type: "licensing"},
+
+        {source: "1001", target: "1000", type: "licensing"},
+        {source: "1001", target: "1003", type: "suit"},
+        {source: "1001", target: "1005", type: "suit"},
+        {source: "1001", target: "1004", type: "resolved"},
+        {source: "1000", target: "1002", type: "licensing"},
+        {source: "1002", target: "1007", type: "licensing"},
+        {source: "1002", target: "1006", type: "licensing"},
+        {source: "1006", target: "1008", type: "licensing"},
+
+        {source: "1111", target: "1110", type: "suit"},
+        {source: "1111", target: "1115", type: "suit"},
+        {source: "1111", target: "1117", type: "resolved"},
+        {source: "1111", target: "1116", type: "licensing"},
+        {source: "1110", target: "1113", type: "resolved"},
+        {source: "1110", target: "1112", type: "licensing"},
+        {source: "1110", target: "1114", type: "licensing"},
+
+        {source: "11111", target: "11110", type: "licensing"},
+        {source: "11111", target: "11115", type: "licensing"},
+        {source: "11111", target: "11114", type: "suit"},
+        {source: "11111", target: "11116", type: "suit"},
+        {source: "11110", target: "11113", type: "resolved"},
+        {source: "11110", target: "11112", type: "resolved"},
+        {source: "11112", target: "11117", type: "resolved"}
+    ];
+
+    var nodes1 = {};
+
+    // Compute the distinct nodes from the links.
+    links.forEach(function(link) {
+        link.source = nodes1[link.source] || (nodes1[link.source] = {name: link.source});
+        link.target = nodes1[link.target] || (nodes1[link.target] = {name: link.target});
+    });
+
+    var width = 960,
+        height = 600;
+
+    var force = d3.layout.force()
+        .nodes(d3.values(nodes1))
+        .links(links)
+        .size([width, height])
+        .linkDistance(60)
+        .charge(-300)
+        .on("tick", tick)
+        .start();
+
+    var svg8 = d3.select("#eighth").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    var link8 = svg8.selectAll(".link")
+        .data(force.links())
+        .enter().append("line")
+        .attr("class", "link");
+
+    var node8 = svg8.selectAll(".node")
+        .data(force.nodes())
+        .enter().append("g")
+        .attr("class", "node1")
+        .on("mouseover", mouseover)
+        .on("mouseout", mouseout)
+        .call(force.drag);
+
+    node8.append("circle")
+        .attr("r", 8);
+
+    node8.append("text")
+        .attr("x", 12)
+        .attr("dy", ".35em")
+    //.text(function(d) { return d.name; });
+
+    function tick() {
+        link8
+            .attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node8
+            .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    }
+
+    function mouseover() {
+        d3.select(this).select("circle").transition()
+            .duration(750)
+            .attr("r", 16);
+    }
+
+    function mouseout() {
+        d3.select(this).select("circle").transition()
+            .duration(750)
+            .attr("r", 8);
+    }
+
+</script>
+
+
+
+
 <h2>4. Conclusion</h2>
 provide a reflection of your work, what you would do differently, what could be done further.
 
 <h2>5. Reference</h2>
-[1] Bai, Yunsheng & Ding, Hao & Bian, Song & Chen, Ting & Sun, Yizhou & Wang, Wei. (2019). SimGNN: A Neural Network Approach to Fast Graph Similarity Computation. WSDM '19: Proceedings of the Twelfth ACM International Conference on Web Search and Data Mining. 384-392. 10.1145/3289600.3290967.
-[2]
-[3] https://towardsdatascience.com/graph-embeddings-the-summary-cc6075aba007
-
+<p>
+    [1] Bai, Yunsheng & Ding, Hao & Bian, Song & Chen, Ting & Sun, Yizhou & Wang, Wei. (2019). SimGNN: A Neural Network Approach to Fast Graph Similarity Computation. WSDM '19: Proceedings of the Twelfth ACM International Conference on Web Search and Data Mining. 384-392. 10.1145/3289600.3290967.<br />
+    [2] Perozzi, Bryan & Al-Rfou, Rami & Skiena, Steven. (2014). DeepWalk: Online Learning of Social Representations. Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. 10.1145/2623330.2623732.<br />
+    [3] https://towardsdatascience.com/graph-embeddings-the-summary-cc6075aba007<br />
+</p>
 
 </body>
 </html>
-
 
