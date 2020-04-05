@@ -1,6 +1,3 @@
----
-layout: default
----
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
@@ -503,7 +500,7 @@ layout: default
 
 
     // ************** Generate the tree diagram	 *****************
-    var margin = {top: 100, right: 10, bottom: 100, left: 50},
+    var margin = {top: 100, right: 20, bottom: 100, left: 20},
         width = 960 - margin.right - margin.left,
         height = 200 - margin.top - margin.bottom;
 
@@ -662,12 +659,12 @@ layout: default
 <h2>3. Results Visualization and Analyse</h2>
 
 <p>
-    Graph Edit Distance(GED) is one of the best methods to measure graph similarity,
-    but it can not measure structure similarity well which is what my algorithm intends to do.
-    But when two graphs are exactly the same, GED will be 0, and it can be use to test whether my algorithm
-    is able to find all identical graphs.
-    The result is shown in the following table. The table shows top 10 similar graphs with graph 3 which are in in descending order.
-    From the table, we can see my algorithm can effectively recognizes identical graphs.
+Graph Edit Distance(GED) is one of the best methods to measure graph similarity,
+but it can not measure structure similarity well which is what my algorithm intends to do.
+But when two graphs are exactly the same, GED will be 0, and it can be use to test whether my algorithm
+is able to find all identical graphs.
+The result is shown in the following table. The table shows top 10 similar graphs with graph 3 which are in in descending order.
+From the table, we can see my algorithm can effectively recognizes identical graphs.
 </p>
 
 <h3><u>Graph Similarity Computation <span style="color: #F0E5DE">My Algorithm Results</span> and <span style="color: #ABD0CE">Graph Edit Distance Results</span></u></h3>
@@ -1103,8 +1100,12 @@ matrix similarity computation method to get similarity score.
     [1] Bai, Yunsheng & Ding, Hao & Bian, Song & Chen, Ting & Sun, Yizhou & Wang, Wei. (2019). SimGNN: A Neural Network Approach to Fast Graph Similarity Computation. WSDM '19: Proceedings of the Twelfth ACM International Conference on Web Search and Data Mining. 384-392. 10.1145/3289600.3290967.<br />
     [2] Perozzi, Bryan & Al-Rfou, Rami & Skiena, Steven. (2014). DeepWalk: Online Learning of Social Representations. Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. 10.1145/2623330.2623732.<br />
     [3] https://towardsdatascience.com/graph-embeddings-the-summary-cc6075aba007<br />
+    [4] https://bl.ocks.org/d3noob/fa0f16e271cb191ae85f<br />
+    [5] http://bl.ocks.org/mbostock/2706022<br />
+    [6] https://gist.github.com/edkiljak/158353df457eda05d2ec4b5c3bb61660/revisions<br />
 </p>
 
 </body>
 </html>
+
 
