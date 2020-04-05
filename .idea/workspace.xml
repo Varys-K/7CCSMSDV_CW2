@@ -16,7 +16,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="F:/Webstorm_Projects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -29,7 +29,8 @@
       <option name="presentableId" value="Default" />
       <updated>1585347606096</updated>
       <workItem from="1585347607786" duration="6565000" />
-      <workItem from="1585413401573" duration="1356000" />
+      <workItem from="1585413401573" duration="6203000" />
+      <workItem from="1586114184912" duration="31000" />
     </task>
     <servers />
   </component>
@@ -37,18 +38,18 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="179" key="#Deployment" timestamp="1585347817536">
+    <state x="92" y="179" key="#Deployment" timestamp="1585417852336">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="179" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1585347817536" />
+    <state x="92" y="179" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1585417852336" />
     <state x="93" y="100" width="814" height="847" key="DirDiffDialog" timestamp="1585355863948">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="93" y="100" width="814" height="847" key="DirDiffDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585355863948" />
-    <state x="280" y="275" key="FileChooserDialogImpl" timestamp="1585413818576">
+    <state x="280" y="275" key="FileChooserDialogImpl" timestamp="1586114212937">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="280" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585413818576" />
+    <state x="280" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586114212937" />
     <state x="296" y="171" key="ftp.server.browser" timestamp="1585347815941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

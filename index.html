@@ -212,7 +212,7 @@ layout: default
 
 
     // ************** Generate the tree diagram	 *****************
-    var margin = {top: 20, right: 120, bottom: 20, left: 120},
+    var margin = {top: 20, right: 50, bottom: 20, left: 120},
         width = 960 - margin.right - margin.left,
         height = 500 - margin.top - margin.bottom;
 
@@ -503,11 +503,7 @@ layout: default
 
 
     // ************** Generate the tree diagram	 *****************
-<<<<<<< HEAD
     var margin = {top: 100, right: 20, bottom: 100, left: 20},
-=======
-    var margin = {top: 100, right: 50, bottom: 100, left: 50},
->>>>>>> parent of 0deb3a7... 3.28
         width = 960 - margin.right - margin.left,
         height = 200 - margin.top - margin.bottom;
 
@@ -641,7 +637,7 @@ layout: default
 <h5>(2) Word2vec</h5>
 <p>
     Training skip-gram: Random walks are comparable to sentences in word2vec approach.
-    The skip-gram network accepts a node from the random walk as a one-hot vector as an input and maximizes the probability for predicting neighbor nodes.
+    The skip-gram network accepts a node from the random walk as a one-hot vector as an input and maximizes the probability for predicting neighbor nodes.<br />
     Computing embeddings: Embedding is the output of a hidden layer of the network.
     The DeepWalk computes embedding for each node in the graph[3].
 </p>
@@ -664,16 +660,14 @@ layout: default
 
 
 <h2>3. Results Visualization and Analyse</h2>
-Summarize the main results of the project.<br />
-Discussion of your results, interesting findings, strengths and limitation of
-your approach.<br />
+
 <p>
-Graph Edit Distance(GED) is one of the best methods to measure graph similarity,
-but it can not measure structure similarity well which is what my algorithm intends to do.
-But when two graphs are exactly the same, GED will be 0, and it can be use to test whether my algorithm
-is able to find all identical graphs.
-The result is shown in the following table. The table shows top 10 similar graphs with graph 3 which are in in descending order.
-From the table, we can see my algorithm can effectively recognizes identical graphs.
+    Graph Edit Distance(GED) is one of the best methods to measure graph similarity,
+    but it can not measure structure similarity well which is what my algorithm intends to do.
+    But when two graphs are exactly the same, GED will be 0, and it can be use to test whether my algorithm
+    is able to find all identical graphs.
+    The result is shown in the following table. The table shows top 10 similar graphs with graph 3 which are in in descending order.
+    From the table, we can see my algorithm can effectively recognizes identical graphs.
 </p>
 
 <h3><u>Graph Similarity Computation <span style="color: #F0E5DE">My Algorithm Results</span> and <span style="color: #ABD0CE">Graph Edit Distance Results</span></u></h3>
@@ -746,9 +740,16 @@ The whole results and other test data can be found in my Github.
     This is what graph 3 looks like.
 </p>
 <p id = "seventh">
+    <style>
+        .node12 circle {
+            fill: #B0C4DE;
+            stroke: #B0C4DE;
+            stroke-width: 3px;
+        }
+    </style>
     And these are the graphs that my algorithm found of highest similarity score with graph 3 among all 558 graphs in the databases.
-</p>
 
+</p>
 <p id = "eighth">
     This is what GED algorithm found that have minimal graph edit distances.
     <style>
@@ -918,7 +919,7 @@ The whole results and other test data can be found in my Github.
     var node4 = svg4.selectAll(".node")
         .data(force.nodes())
         .enter().append("g")
-        .attr("class", "node")
+        .attr("class", "node12")
         .on("mouseover", mouseover)
         .on("mouseout", mouseout)
         .call(force.drag);
@@ -955,8 +956,6 @@ The whole results and other test data can be found in my Github.
     }
 
 </script>
-
-
 <script>
 
     var links = [
@@ -1082,13 +1081,23 @@ The whole results and other test data can be found in my Github.
     }
 
 </script>
-
-
+<p>
+    In conclusion, my algorithm can effectively recognize identical graphs and can measure structure similarity well.
+    In comparison, GED shows another way to define graph similarity using edit distance.
+    It is interesting that my algorithm may get slightly different similarity scores for each run
+    because it is based on random walk, but the result ordering sequences is stable.
+    Compared to GED, my algorithm is not that precise, however, my algorithm is very fast
+    and can be computed in parallel. It is known that GED is extremely slow.
+</p>
 
 
 <h2>4. Conclusion</h2>
-provide a reflection of your work, what you would do differently, what could be done further.
 
+To sum up, in this coursework, I design an algorithm to compute graph structure similarity scores between two undirected and unlabelled
+nodes at first. And then I make several experiments to test my algorithm and compare my algorithm with GED, which shows my
+algorithm is effective and efficient. But the experiment also shows that my algorithm lacks precision which can be improved in
+the future. There are many aspects can be improved. For example, I can change various ways of random walks to get better structure features or I can use more complex
+matrix similarity computation method to get similarity score.
 <h2>5. Reference</h2>
 <p>
     [1] Bai, Yunsheng & Ding, Hao & Bian, Song & Chen, Ting & Sun, Yizhou & Wang, Wei. (2019). SimGNN: A Neural Network Approach to Fast Graph Similarity Computation. WSDM '19: Proceedings of the Twelfth ACM International Conference on Web Search and Data Mining. 384-392. 10.1145/3289600.3290967.<br />
@@ -1101,5 +1110,3 @@ provide a reflection of your work, what you would do differently, what could be 
 
 </body>
 </html>
-
-
